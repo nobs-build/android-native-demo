@@ -9,7 +9,8 @@ The project produces two Android arm64 artifacts from the same `core` unit:
 - `android_binary::binary`: a regular ELF executable with `main()`; it prints
   `Hello World` to standard output.
 - `anrdoid_package::package`: an APK containing a NativeActivity shared
-  library; it prints `Hello World` to logcat under the `NobsHelloWorld` tag.
+  library; it renders `HELLO WORLD` over a coffee-black background and also
+  prints `Hello World` to logcat under the `NobsHelloWorld` tag.
 
 The `anrdoid_debug`, `anrdoid_release`, and `anrdoid_package` spellings are
 intentional and retained for compatibility with the original project.
@@ -256,8 +257,8 @@ $apk = Join-Path $PWD 'out\android-36\anrdoid_debug\anrdoid_package\package\hell
 & $adb shell am start -n 'com.example.nobshelloworld/android.app.NativeActivity'
 ```
 
-The NativeActivity displays an otherwise empty window. Read its Hello World
-message from logcat:
+The NativeActivity displays `HELLO WORLD` over a coffee-black background. It
+also writes the message to logcat:
 
 ```powershell
 & $adb logcat -d -s 'NobsHelloWorld:I' '*:S'
