@@ -75,7 +75,6 @@ tools {
     tool_type = "llvm-clang"
     toolchain_path = R"(C:\Users\<username>\AppData\Local\Android\Sdk\ndk\29.0.14206865\toolchains\llvm\prebuilt\windows-x86_64)"
     TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
-    toolchain_min_version = "21"
   }
 }
 ```
@@ -137,7 +136,6 @@ tools {
     tool_type = "llvm-clang"
     toolchain_path = R"(C:\Android\ndk\29.0.14206865\toolchains\llvm\prebuilt\windows-x86_64)"
     TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
-    toolchain_min_version = "21"
   }
 }
 ```
@@ -154,6 +152,10 @@ Confirm that Nobs can see the project configuration:
 
 Expected units include `android_binary`, `anrdoid_package`, and `core`.
 Expected profiles are `anrdoid_debug` and `anrdoid_release`.
+
+Both profiles require `toolchain_min_version = "21"`. This constrains the
+LLVM/Clang version selected from the registry; it is separate from Android API
+level 21 encoded by `android21` in the target triple.
 
 ## Create the debug signing key
 

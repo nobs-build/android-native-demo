@@ -18,6 +18,7 @@ profiles {
   anrdoid_debug {
     LLVM
     TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
+    toolchain_min_version = "21"
     ANDROID_PLATFORM = 36
     MIN_SDK = 21
     TARGET_SDK = 36
@@ -32,6 +33,7 @@ profiles {
   anrdoid_release {
     LLVM
     TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
+    toolchain_min_version = "21"
     ANDROID_PLATFORM = 36
     MIN_SDK = 21
     TARGET_SDK = 36
