@@ -1,0 +1,9 @@
+unit android_binary
+
+binary: +core::build
+{
+    EXE
+    C_FILES = P"(src/main.c)"
+    C_FLAGS += ["-std=c17"]
+    OUTPUT_NAME = "hello_world"
+}

@@ -1,0 +1,22 @@
+unit core
+
+build: +objects +api
+{
+    STATIC
+    OBJS
+    OUTPUT_NAME = "libhello_world_core.a"
+    ^INCLUDE
+}
+
+api:
+{
+    NO_TOOL
+    ^INCLUDE = P"(include)"
+}
+
+objects: api
+{
+    C_FILES = P"(src/hello_world.c)"
+    C_FLAGS += ["-std=c17", "-fPIC", "-c"]
+    INCLUDE = api.INCLUDE
+}

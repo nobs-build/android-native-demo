@@ -1,0 +1,21 @@
+unit anrdoid_package
+
+package: native
+{
+    APK
+    ANDROID_MANIFEST = P"(AndroidManifest.xml)"
+    ANDROID_ABI = "arm64-v8a"
+    NATIVE_LIBS = native.BINARY
+    PACKAGE_NAME = "com.example.nobshelloworld"
+    VERSION_CODE = 1
+    VERSION_NAME = "1.0"
+    OUTPUT_NAME = "hello_world.apk"
+}
+
+native: +core::build
+{
+    C_FILES = P"(src/native_activity.c)"
+    C_FLAGS += ["-std=c17", "-fPIC", "-shared"]
+    LIB += ["-landroid", "-llog"]
+    OUTPUT_NAME = "libhello_world.so"
+}
