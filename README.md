@@ -153,13 +153,14 @@ Confirm that Nobs can see the project configuration:
 Expected units include `android_binary`, `anrdoid_package`, and `core`.
 Expected profiles are `anrdoid_debug` and `anrdoid_release`.
 
-Both profiles require `toolchain_min_version = "21"`. This constrains the
-LLVM/Clang version selected from the registry; it is separate from Android API
-level 21 encoded by `android21` in the target triple.
+The C build targets select LLVM/Clang 21 or newer and the
+`aarch64-linux-android21` toolchain triple. Keeping these compiler hints on the
+targets leaves profiles responsible only for debug/release policy and Android
+packaging levels.
 
 ## Create the debug signing key
 
-The debug profile asks the Nobs Android SDK builder to sign and verify the APK.
+The APK target asks the Nobs Android SDK builder to sign and verify debug builds.
 The private key is intentionally excluded by `.gitignore`, so create it once
 after cloning the repository:
 

@@ -2,6 +2,9 @@ unit core
 
 build: +objects +api
 {
+    LLVM
+    TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
+    toolchain_min_version = "21"
     STATIC
     OBJS
     OUTPUT_NAME = "libhello_world_core.a"
@@ -16,6 +19,9 @@ api:
 
 objects: api
 {
+    LLVM
+    TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
+    toolchain_min_version = "21"
     C_FILES = P"(src/hello_world.c)"
     C_FLAGS += ["-std=c17", "-fPIC", "-c"]
     INCLUDE = api.INCLUDE

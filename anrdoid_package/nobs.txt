@@ -10,10 +10,22 @@ package: native
     VERSION_CODE = 1
     VERSION_NAME = "1.0"
     OUTPUT_NAME = "hello_world.apk"
+
+    if PROFILE = "anrdoid_debug"
+    {
+        APK_SIGN
+        KEYSTORE = P"(../debug.keystore)"
+        KEY_ALIAS = "androiddebugkey"
+        KEYSTORE_PASS_ENV = "NOBS_DEBUG_STORE_PASSWORD"
+        KEY_PASS_ENV = "NOBS_DEBUG_KEY_PASSWORD"
+    }
 }
 
 native: +core::build
 {
+    LLVM
+    TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
+    toolchain_min_version = "21"
     C_FILES = P"(src/native_activity.c)"
     C_FLAGS += ["-std=c17", "-fPIC", "-shared"]
     LIB += ["-landroid", "-llog"]

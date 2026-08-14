@@ -16,24 +16,13 @@ units {
 
 profiles {
   anrdoid_debug {
-    LLVM
-    TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
-    toolchain_min_version = "21"
     ANDROID_PLATFORM = 36
     MIN_SDK = 21
     TARGET_SDK = 36
-    APK_SIGN
-    KEYSTORE = P"(debug.keystore)"
-    KEY_ALIAS = "androiddebugkey"
-    KEYSTORE_PASS_ENV = "NOBS_DEBUG_STORE_PASSWORD"
-    KEY_PASS_ENV = "NOBS_DEBUG_KEY_PASSWORD"
     C_FLAGS += ["-O0", "-g", "-fno-omit-frame-pointer"]
   }
 
   anrdoid_release {
-    LLVM
-    TOOLCHAIN_TRIPLET = "aarch64-linux-android21"
-    toolchain_min_version = "21"
     ANDROID_PLATFORM = 36
     MIN_SDK = 21
     TARGET_SDK = 36
